@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./index.css";
+import { birthdays } from "./people";
 
 function App() {
+  const [birthday, setBirthday] = React.useState(birthdays);
+  const handleButton = () => {
+    setBirthday("");
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {birthday.map((man) => {
+        const { name, age, img } = man;
+        return (
+          <article key={name}>
+            <div>
+              <h1>{birthdays.length} birthdays today!</h1>
+            </div>
+            <div>
+              <h1>{name}</h1>
+              <img src={img} />
+              <p>{age}</p>
+            </div>
+          </article>
+        );
+      })}
+      <button onClick={handleButton}>Clear All</button>
+    </>
   );
 }
-
 export default App;
