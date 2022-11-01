@@ -9,13 +9,12 @@ function App() {
   };
   return (
     <>
+      <h1>{birthdays.length} birthdays today!</h1>
+
       {birthday.map((man) => {
         const { name, age, img } = man;
         return (
           <article key={name}>
-            <div>
-              <h1>{birthdays.length} birthdays today!</h1>
-            </div>
             <div>
               <h1>{name}</h1>
               <img src={img} />
